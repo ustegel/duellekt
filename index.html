@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Duellekt 44</title>
+<link rel="icon" type="image/jpeg" href="https://docs.google.com/drawings/d/e/2PACX-1vQbzxPda05zw-xlcupsexZXTdDejHMneiSYpebnPi4kDrTlAGoWDvzmG54n2X7AAZuNllQMYRsKgCjV/pub?w=960&h=720">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   DUELLEKT 44 — TV Şou Dizaynı (Royal Mavi + Qızılı)
+   ===================================================================== */
+:root {
+  --bg: #01030c;
+  --surface: #081034;
+  --card: #0c1750;
+  --card-hover: #13236d;
+  --text: #FFFFFF;
+  --text-2: #9FB0E8;
+  --muted: #5F72C4;
+  --blue: #3D6BFF;
+  --cyan: #5AD0FF;
+  --rose: #F43F5E;
+  --amber: #F5B72B;
+  --emerald: #10B981;
+  --gold: #F5B72B;
+  --gold-2: #FFD76A;
+  --fl-blue-1: #2340B8;
+  --fl-blue-2: #12206F;
+  --border: rgba(120, 150, 255, 0.18);
+  --grad-primary: linear-gradient(135deg, #F5B72B, #FFD76A);
+  --grad-success: linear-gradient(135deg, #10B981, #06B6D4);
+  --glow: 0 0 40px rgba(61, 107, 255, 0.25);
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { height: 100%; margin: 0; }
+body {
+  font-family: var(--font-body); font-weight: 400; color: var(--text);
+  background:
+    radial-gradient(520px 380px at 88% 22%, rgba(120, 170, 255, 0.28), transparent 65%),
+    radial-gradient(700px 520px at 12% -5%, rgba(40, 80, 255, 0.35), transparent 65%),
+    radial-gradient(900px 500px at 50% 115%, rgba(30, 60, 200, 0.30), transparent 65%),
+    var(--bg);
+  overflow: hidden; -webkit-font-smoothing: antialiased;
+}
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+/* ---------- Layout ---------- */
+#app { height: 100vh; height: 100dvh; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 14px; padding: 14px 18px 18px; }
+
+/* ---------- Top bar ---------- */
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.logo {
+  width: 42px; height: 42px; border-radius: 12px;
+  background: #ffffff; display: grid; place-items: center;
+  box-shadow: 0 0 24px rgba(245, 183, 43, 0.35);
+  overflow: hidden; flex: none; border: 1.5px solid var(--gold);
+}
+.logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.brand-title { font-family: var(--font-display); font-weight: 800; font-size: 19px; letter-spacing: 0.04em; color: #fff; }
+.topic-pill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 100px; background: rgba(245, 183, 43, 0.10); border: 1px solid rgba(245, 183, 43, 0.45); color: var(--text); font-weight: 500; font-size: 14px; max-width: 46vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.topic-pill .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); flex: none; }
+
+/* ---------- Admin dock ---------- */
+.dock { display: flex; align-items: center; gap: 8px; padding: 8px; flex-wrap: wrap; background: rgba(8, 16, 52, 0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid var(--border); border-radius: 16px; }
+.dock-sep { width: 1px; align-self: stretch; background: var(--border); margin: 0 2px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 16px; border-radius: 12px; cursor: pointer; background: var(--card); color: var(--text); border: 1px solid var(--border); font-family: var(--font-body); font-weight: 500; font-size: 14px; transition: background 0.15s, transform 0.1s, border-color 0.15s, opacity 0.15s; user-select: none; }
+.btn:hover:not(:disabled) { background: var(--card-hover); }
+.btn:active:not(:disabled) { transform: scale(0.97); }
+.btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.btn.icon { width: 44px; padding: 0; }
+.btn-primary { background: var(--grad-primary); color: #1a1200; border-color: transparent; font-weight: 700; }
+.btn-primary:hover:not(:disabled) { background: var(--grad-primary); filter: brightness(1.08); }
+.btn-action { height: 48px; min-width: 128px; font-family: var(--font-display); font-weight: 700; font-size: 15px; letter-spacing: 0.04em; border-radius: 100px; padding: 0 22px; }
+.btn-pass { background: rgba(244, 63, 94, 0.14); border-color: rgba(244, 63, 94, 0.5); color: #FF8CA1; }
+.btn-pass:hover:not(:disabled) { background: rgba(244, 63, 94, 0.24); }
+.btn-next { background: var(--grad-success); color: #04130d; border-color: transparent; }
+.btn-next:hover:not(:disabled) { background: var(--grad-success); filter: brightness(1.1); }
+.btn-danger { background: rgba(244, 63, 94, 0.12); border-color: rgba(244, 63, 94, 0.4); color: #FF8CA1; }
+kbd { font-family: var(--font-body); font-size: 11px; padding: 2px 6px; border-radius: 6px; background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 255, 255, 0.18); color: inherit; opacity: 0.9; }
+.dock-reveal { display: none; }
+body.admin-hidden .dock { display: none; }
+body.admin-hidden .dock-reveal { display: inline-flex; }
+
+/* ---------- Stage (şəkillər) ---------- */
+.stage { position: relative; min-height: 0; border-radius: 20px; overflow: hidden; background: #040a26; border: 2px solid rgba(90, 130, 255, 0.45); box-shadow: 0 0 50px rgba(61, 107, 255, 0.22); }
+.stage img.q { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; pointer-events: none; user-select: none; -webkit-user-drag: none; }
+.stage img.q.active { opacity: 1; }
+
+.overlay { position: absolute; inset: 0; display: none; place-items: center; text-align: center; padding: 24px; background: rgba(1, 3, 12, 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.overlay.show { display: grid; }
+.overlay .box { max-width: 520px; width: 100%; display: grid; gap: 14px; justify-items: center; }
+.overlay h2 { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 3vw, 34px); }
+.overlay p { margin: 0; color: var(--text-2); font-size: 15px; line-height: 1.5; }
+#ovPause { background: rgba(1, 3, 12, 0.96); }
+.progress { width: 100%; height: 8px; border-radius: 100px; background: rgba(255, 255, 255, 0.08); overflow: hidden; }
+.progress > i { display: block; height: 100%; width: 0; border-radius: 100px; background: var(--grad-primary); transition: width 0.2s; }
+.penalty-label { font-family: var(--font-display); font-weight: 700; font-size: 13px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--rose); padding: 6px 14px; border-radius: 100px; background: rgba(244, 63, 94, 0.12); border: 1px solid rgba(244, 63, 94, 0.35); }
+.penalty-num { font-family: var(--font-display); font-weight: 800; font-size: clamp(80px, 16vw, 180px); line-height: 1; color: var(--rose); text-shadow: 0 0 40px rgba(244, 63, 94, 0.35); font-variant-numeric: tabular-nums; }
+
+/* =====================================================================
+   Scoreboard — Duellekt 44 lövhəsi
+   ===================================================================== */
+.scoreboard {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto auto;
+  gap: 0; align-items: stretch; padding: 0 clamp(0px, 2vw, 28px);
+}
+.player { display: contents; }
+
+.player-head {
+  position: relative; isolation: isolate; grid-row: 1;
+  height: clamp(36px, 4.6vw, 48px);
+  display: flex; align-items: center; justify-content: center;
+  background: var(--gold); filter: brightness(0.7) saturate(0.85); transition: filter 0.2s;
+}
+.player-head::before { content: ''; position: absolute; inset: 2px 2px 3px; z-index: -1; background: linear-gradient(180deg, var(--fl-blue-1), var(--fl-blue-2)); clip-path: inherit; }
+.p1 .player-head { grid-column: 1 / 6; clip-path: polygon(0 0, 93% 0, 100% 100%, 0 100%); }
+.p2 .player-head { grid-column: 8 / 13; clip-path: polygon(7% 0, 100% 0, 100% 100%, 0 100%); }
+.player.active .player-head { filter: brightness(1.15); }
+.player-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(15px, 2vw, 24px); letter-spacing: 0.12em; text-transform: uppercase; color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; padding: 0 14px; }
+.turn-chip { display: none !important; }
+
+.player-time {
+  position: relative; isolation: isolate; grid-row: 2;
+  display: grid; place-items: center;
+  height: clamp(64px, 9vw, 104px);
+  font-family: var(--font-display); font-weight: 800; font-size: clamp(32px, 5.6vw, 76px);
+  font-variant-numeric: tabular-nums; line-height: 1;
+  color: rgba(160, 180, 255, 0.40); background: var(--gold); transition: color 0.2s;
+}
+.player-time::before { content: ''; position: absolute; inset: 3px; z-index: -1; background: linear-gradient(180deg, var(--fl-blue-1), var(--fl-blue-2)); clip-path: inherit; }
+.player-time small { display: none; }
+.p1 .player-time { grid-column: 1 / 3; clip-path: polygon(0 0, 100% 0, 100% 100%, 16% 100%); padding-left: 8%; }
+.p2 .player-time { grid-column: 11 / 13; clip-path: polygon(0 0, 100% 0, 84% 100%, 0 100%); padding-right: 8%; }
+.player.active .player-time, body[data-status="ready"] .player-time { color: #fff; }
+.player.low .player-time { color: var(--rose); }
+.player.low.active .player-time { color: #FF5C77; animation: pulse 0.9s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: 0.55; } }
+
+.bar { grid-row: 2; align-self: end; position: relative; z-index: 3; height: 5px; margin-bottom: 9px; border-radius: 100px; background: rgba(255, 255, 255, 0.12); overflow: hidden; }
+.p1 .bar { grid-column: 1 / 3; margin-left: 30px; margin-right: 16px; }
+.p2 .bar { grid-column: 11 / 13; margin-left: 16px; margin-right: 30px; }
+.bar > i { display: block; height: 100%; width: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--gold), var(--gold-2)); }
+.player.low .bar > i { background: var(--rose); }
+
+.answer {
+  position: relative; isolation: isolate; grid-column: 3 / 11; grid-row: 2;
+  display: grid; place-items: center; align-content: center; gap: 4px; text-align: center;
+  height: clamp(64px, 9vw, 104px); padding: 4px 24px; min-width: 0;
+  background: var(--gold); transition: filter 0.2s;
+}
+.answer::before { content: ''; position: absolute; inset: 3px 0; z-index: -1; background: linear-gradient(180deg, var(--fl-blue-1), var(--fl-blue-2)); transition: background 0.2s; }
+.answer .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: #A9B9F5; font-weight: 500; }
+.answer .value { font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 3.6vw, 50px); line-height: 1.1; color: #fff; overflow-wrap: anywhere; }
+.answer.correct { filter: drop-shadow(0 0 18px rgba(16, 185, 129, 0.55)); }
+.answer.correct::before { background: linear-gradient(180deg, #0E9F6E, #065F46); }
+.answer.wrong { filter: drop-shadow(0 0 18px rgba(244, 63, 94, 0.55)); }
+.answer.wrong::before { background: linear-gradient(180deg, #E11D48, #881337); }
+
+/* ---------- Geri sayım (3-2-1) ---------- */
+#ovCount { background: rgba(1, 3, 12, 0.88); }
+.count-num { font-family: var(--font-display); font-weight: 800; font-size: clamp(120px, 26vw, 300px); line-height: 1; font-variant-numeric: tabular-nums; background: var(--grad-primary); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 50px rgba(245, 183, 43, 0.35)); animation: pop 0.55s ease-out; }
+@keyframes pop { from { transform: scale(1.4); opacity: 0.2; } to { transform: scale(1); opacity: 1; } }
+
+/* ---------- Winner ---------- */
+.winner { position: fixed; inset: 0; z-index: 40; display: none; place-items: center; text-align: center; padding: 24px; background: radial-gradient(700px 420px at 50% 45%, rgba(61, 107, 255, 0.28), transparent 70%), rgba(1, 3, 12, 0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.winner.show { display: grid; }
+.winner .box { display: grid; gap: 18px; justify-items: center; max-width: 90vw; }
+.winner-chip { font-family: var(--font-display); font-weight: 700; font-size: 14px; letter-spacing: 0.07em; text-transform: uppercase; padding: 8px 18px; border-radius: 100px; background: rgba(245, 183, 43, 0.14); border: 1px solid rgba(245, 183, 43, 0.45); color: var(--amber); }
+.winner-name { font-family: var(--font-display); font-weight: 800; font-size: clamp(44px, 10vw, 140px); line-height: 1.05; overflow-wrap: anywhere; background: var(--grad-primary); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 40px rgba(245, 183, 43, 0.3)); }
+.winner-meta { color: var(--text-2); font-size: 16px; }
+
+/* ---------- Toasts ---------- */
+#toasts { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); display: grid; gap: 8px; z-index: 80; width: min(92vw, 460px); pointer-events: none; }
+.toast { padding: 12px 16px; border-radius: 12px; background: var(--card-hover); border: 1px solid var(--border); font-size: 14px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); pointer-events: auto; }
+.toast.ok { border-color: rgba(16, 185, 129, 0.5); }
+.toast.err { border-color: rgba(244, 63, 94, 0.55); }
+.toast.warn { border-color: rgba(245, 158, 11, 0.55); }
+
+/* ---------- İdarəetmə paneli (modal) ---------- */
+.modal { position: fixed; inset: 0; z-index: 60; display: none; place-items: center; padding: 16px; background: rgba(1, 3, 12, 0.75); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.modal.show { display: grid; }
+.sheet { width: min(980px, 100%); max-height: 92vh; max-height: 92dvh; overflow: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; box-shadow: var(--glow); }
+.sheet-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 22px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--surface); z-index: 2; }
+.sheet-head h2 { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 20px; }
+.pad { padding: 22px; display: grid; gap: 16px; }
+.tabs { display: flex; gap: 6px; padding: 14px 22px 0; }
+.tab { height: 38px; padding: 0 16px; border-radius: 100px; border: 1px solid var(--border); background: transparent; color: var(--text-2); font-family: var(--font-body); font-weight: 500; font-size: 14px; cursor: pointer; }
+.tab[aria-selected="true"] { background: rgba(245, 183, 43, 0.14); border-color: rgba(245, 183, 43, 0.45); color: var(--text); }
+.field { display: grid; gap: 6px; min-width: 0; }
+.field label { font-size: 12px; color: var(--text-2); font-weight: 500; }
+.input { height: 44px; width: 100%; padding: 0 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--card); color: var(--text); font-family: var(--font-body); font-size: 14px; }
+.input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(245, 183, 43, 0.2); }
+select.input { cursor: pointer; }
+select.input option { background: #0c1750; color: #fff; }
+.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; align-items: end; }
+.check { display: flex; align-items: center; gap: 10px; height: 44px; font-size: 14px; color: var(--text); cursor: pointer; }
+.check input { width: 18px; height: 18px; accent-color: var(--gold); cursor: pointer; }
+.err-text { color: var(--rose); font-size: 13px; min-height: 18px; margin: 0; }
+.row-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.table-wrap { overflow: auto; border-radius: 16px; border: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); font-weight: 500; text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+td { padding: 10px 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.04); vertical-align: middle; }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--card-hover); }
+.thumb { width: 64px; height: 44px; object-fit: cover; border-radius: 8px; background: var(--card); display: block; }
+.chip { display: inline-block; padding: 3px 10px; border-radius: 100px; font-size: 12px; font-weight: 500; }
+.chip.on { background: rgba(16, 185, 129, 0.14); color: var(--emerald); }
+.chip.off { background: rgba(255, 255, 255, 0.06); color: var(--text-2); }
+.btn-sm { height: 34px; padding: 0 12px; font-size: 13px; border-radius: 8px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  #app { padding: 10px 12px 12px; gap: 10px; }
+  .scoreboard { padding: 0; }
+  .p1 .player-head { grid-column: 1 / 7; }
+  .p2 .player-head { grid-column: 7 / 13; }
+  .p1 .player-time, .p1 .bar { grid-column: 1 / 4; }
+  .p2 .player-time, .p2 .bar { grid-column: 10 / 13; }
+  .p1 .bar { margin-left: 22px; }
+  .p2 .bar { margin-right: 22px; }
+  .answer { grid-column: 4 / 10; padding: 4px 10px; }
+  .topic-pill { max-width: 60vw; }
+  .dock { width: 100%; justify-content: space-between; }
+  .btn-action { flex: 1 1 120px; }
+}
+@media (max-width: 480px) {
+  .brand-title { display: none; }
+  .tabs { overflow-x: auto; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+
+<body data-status="loading">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-play" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></symbol>
+    <symbol id="i-full" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    <symbol id="i-vol" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></symbol>
+  </defs>
+</svg>
+
+<div id="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <img src="https://docs.google.com/drawings/d/e/2PACX-1vQbzxPda05zw-xlcupsexZXTdDejHMneiSYpebnPi4kDrTlAGoWDvzmG54n2X7AAZuNllQMYRsKgCjV/pub?w=960&h=720" alt="Duellekt 44">
+      </div>
+      <span class="brand-title">DUELLEKT 44</span>
+      <span class="topic-pill"><span class="dot"></span><span id="topicText">Yüklənir…</span></span>
+    </div>
+
+    <button class="btn icon dock-reveal" id="btnDockShow" aria-label="Admin panelini göstər" title="Admin panelini göstər">
+      <svg><use href="#i-down"/></svg>
+    </button>
+
+    <div class="dock" role="toolbar" aria-label="Admin idarəetməsi">
+      <button class="btn btn-primary" id="btnStart" disabled>
+        <svg id="icPlay"><use href="#i-play"/></svg>
+        <svg id="icPause" hidden><use href="#i-pause"/></svg>
+        <span id="btnStartLabel">Başla</span> <kbd>S / Space</kbd>
+      </button>
+      <span class="dock-sep"></span>
+      <button class="btn btn-action btn-pass" id="btnPass" disabled aria-label="Pass — cavab qırmızı göstərilir, növbəti sual gecikmə ilə gəlir (P, ↑ və ya ↓)">
+        <svg><use href="#i-arrow"/></svg> PASS <kbd>P / ↑ ↓</kbd>
+      </button>
+      <button class="btn btn-action btn-next" id="btnNext" disabled aria-label="Next — düzgün cavab, növbə keçir (N və ya →)">
+        <svg><use href="#i-check"/></svg> NEXT <kbd>N / →</kbd>
+      </button>
+      <span class="dock-sep"></span>
+      <button class="btn icon" id="btnMute" aria-label="Səsi aç/bağla (M)" title="Səs (M)"><svg id="icVol"><use href="#i-vol"/></svg><svg id="icMute" hidden><use href="#i-mute"/></svg></button>
+      <button class="btn icon" id="btnReset" aria-label="Oyunu sıfırla" title="Oyunu sıfırla"><svg><use href="#i-reset"/></svg></button>
+      <button class="btn icon" id="btnManage" aria-label="Sual və parametr idarəetməsi" title="Sual və parametr idarəetməsi"><svg><use href="#i-sliders"/></svg></button>
+      <button class="btn icon" id="btnFull" aria-label="Tam ekran" title="Tam ekran"><svg><use href="#i-full"/></svg></button>
+      <button class="btn icon" id="btnDockHide" aria-label="Admin panelini gizlət (H)" title="Gizlət (H)"><svg><use href="#i-up"/></svg></button>
+    </div>
+  </header>
+
+  <main class="stage" aria-label="Sual şəkli">
+    <div id="stageImgs"></div>
+
+    <div class="overlay show" id="ovLoading" role="status" aria-live="polite">
+      <div class="box">
+        <h2 id="loadTitle">Şəkillər yüklənir…</h2>
+        <p id="loadSub">Bütün şəkillər əvvəlcədən yüklənir ki, oyun zamanı gecikmə olmasın.</p>
+        <div class="progress" aria-hidden="true"><i id="loadFill"></i></div>
+        <button class="btn" id="btnRetry" hidden>Yenidən cəhd et</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="ovReady">
+      <div class="box">
+        <h2>Oyun hazırdır</h2>
+        <p id="readyInfo"></p>
+        <button class="btn btn-primary btn-action" id="btnStartBig"><svg><use href="#i-play"/></svg> Başla</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="ovPenalty" role="status" aria-live="off">
+      <div class="box">
+        <span class="penalty-label">Pass</span>
+        <div class="penalty-num" id="penaltyNum">5</div>
+        <p>Növbəti şəkil gəlir…</p>
+      </div>
+    </div>
+
+    <div class="overlay" id="ovCount" role="status" aria-live="off">
+      <div class="box"><div class="count-num" id="countNum">3</div></div>
+    </div>
+
+    <div class="overlay" id="ovPause">
+      <div class="box">
+        <h2>Oyun dayandırılıb</h2>
+        <p>Davam etmək üçün “Davam et” düyməsini və ya <kbd>S / Space</kbd> basın.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Aşağı lövhə: ad + saniyə (sol/sağ), cavab (ortada) -->
+  <footer class="scoreboard">
+    <section class="player p1" id="player0" aria-label="Birinci iştirakçı">
+      <div class="player-head"><span class="player-name" id="name0">Oyunçu 1</span><span class="turn-chip">Növbə</span></div>
+      <div class="player-time" id="time0">60.0<small>san</small></div>
+      <div class="bar"><i id="bar0"></i></div>
+    </section>
+
+    <section class="answer" id="answerBox" aria-live="polite" aria-atomic="true">
+      <span class="label" id="answerLabel">Düzgün cavab</span>
+      <span class="value" id="answerValue">—</span>
+    </section>
+
+    <section class="player p2" id="player1" aria-label="İkinci iştirakçı">
+      <div class="player-head"><span class="player-name" id="name1">Oyunçu 2</span><span class="turn-chip">Növbə</span></div>
+      <div class="player-time" id="time1">60.0<small>san</small></div>
+      <div class="bar"><i id="bar1"></i></div>
+    </section>
+  </footer>
+</div>
+
+<div class="winner" id="ovWinner" role="alertdialog" aria-labelledby="winnerName">
+  <div class="box">
+    <span class="winner-chip">Qalib</span>
+    <div class="winner-name" id="winnerName"></div>
+    <div class="winner-meta" id="winnerMeta"></div>
+    <button class="btn btn-primary btn-action" id="btnAgain"><svg><use href="#i-reset"/></svg> Yenidən oyna</button>
+  </div>
+</div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="sheet">
+    <div class="sheet-head">
+      <h2 id="mTitle">Oyun idarəetməsi</h2>
+      <button class="btn icon" id="mClose" aria-label="Bağla"><svg><use href="#i-x"/></svg></button>
+    </div>
+
+    <div class="pad" id="pinGate">
+      <p style="margin:0;color:var(--text-2)">Sual və parametrləri dəyişmək üçün admin PIN-ni daxil edin.</p>
+      <form id="pinForm" class="form-grid" autocomplete="off">
+        <div class="field">
+          <label for="pinInput">Admin PIN</label>
+          <input class="input" id="pinInput" type="password" inputmode="text" autocomplete="off" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Daxil ol</button>
+      </form>
+      <p class="err-text" id="pinErr" role="alert"></p>
+    </div>
+
+    <div id="mgr" hidden>
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" id="tabQ" aria-selected="true" aria-controls="panelQ">Sual bankı</button>
+        <button class="tab" role="tab" id="tabS" aria-selected="false" aria-controls="panelS">Parametrlər</button>
+      </div>
+
+      <div class="pad" id="panelQ" role="tabpanel" aria-labelledby="tabQ">
+        <form id="qForm" class="pad" style="padding:0" autocomplete="off">
+          <input type="hidden" id="qRow">
+          <div class="form-grid">
+            <div class="field" style="grid-column:span 2">
+              <label for="qUrl">Şəkil URL (https://… və ya Google Drive linki)</label>
+              <input class="input" id="qUrl" type="url" required placeholder="https://…">
+            </div>
+            <div class="field">
+              <label for="qAnswer">Düzgün cavab</label>
+              <input class="input" id="qAnswer" type="text" maxlength="120" required>
+            </div>
+            <label class="check"><input type="checkbox" id="qActive" checked> Aktiv</label>
+          </div>
+          <div class="row-actions">
+            <button class="btn btn-primary" type="submit" id="qSubmit">Əlavə et</button>
+            <button class="btn" type="button" id="qCancel" hidden>Redaktəni ləğv et</button>
+          </div>
+          <p class="err-text" id="qErr" role="alert"></p>
+        </form>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Şəkil</th><th>Cavab</th><th>Status</th><th>Əməliyyat</th></tr></thead>
+            <tbody id="qBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="pad" id="panelS" role="tabpanel" aria-labelledby="tabS" hidden>
+        <form id="sForm" class="pad" style="padding:0" autocomplete="off">
+          <div class="form-grid">
+            <div class="field"><label for="sAd1">Ad 1 (sol)</label><input class="input" id="sAd1" maxlength="40" required></div>
+            <div class="field"><label for="sAd2">Ad 2 (sağ)</label><input class="input" id="sAd2" maxlength="40" required></div>
+            <div class="field"><label for="sMovzu">Mövzu</label><input class="input" id="sMovzu" maxlength="80" required></div>
+            <div class="field"><label for="sVaxt">Vaxt (saniyə)</label><input class="input" id="sVaxt" type="number" min="10" max="600" required></div>
+            <div class="field"><label for="sPass">Pass cəriməsi (saniyə)</label><input class="input" id="sPass" type="number" min="0" max="30" required></div>
+            <div class="field">
+              <label for="sMusic">Fon musiqisi</label>
+              <select class="input" id="sMusic">
+                <option value="track1">Klassik TV (Orijinal ritm)</option>
+                <option value="track2">Kiber Döyüş (Texno duel)</option>
+                <option value="track3">Dramatik Epik (Kinematik)</option>
+              </select>
+            </div>
+            <label class="check"><input type="checkbox" id="sShuffle"> Sualları qarışdır</label>
+          </div>
+          <div class="row-actions"><button class="btn btn-primary" type="submit">Saxla</button></div>
+          <p class="err-text" id="sErr" role="alert"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toasts" aria-live="polite"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  const $ = function (id) { return document.getElementById(id); };
+  const DEFAULTS = { ad1: 'Oyunçu 1', ad2: 'Oyunçu 2', movzu: 'Duellekt 44', vaxt: 60, pass: 5, qarisdir: true, musiqi: 'track1' };
+  const LOW_MS = 10000;
+  const COUNT_MS = 3000;
+  const NEXT_DELAY_MS = 1000;
+  const ANSWER_SHOW_MS = 1000;
+
+  function restartAnim(el) { el.style.animation = 'none'; void el.offsetWidth; el.style.animation = ''; }
+
+  /* ===================================================================
+     Səs effektləri və 3 Fərqli Fon Musiqisi (Web Audio API)
+     =================================================================== */
+  const Sfx = (function () {
+    let ctx = null, master = null, bus = null, noiseBuf = null, winTimer = null, muted = false;
+    try { muted = localStorage.getItem('floorMuted') === '1'; } catch (e) {}
+
+    const MUSIC_VOL = 0.55;
+    let mGain = null, mTimer = null, mStep = 0, mNext = 0, mOn = false, mIntense = false;
+    let mTrack = 'track1';
+
+    // 1) Track 1: Klassik TV (Am – F – G – E)
+    const T1_ROOTS = [55, 43.65, 49, 41.2];
+    const T1_ARP = [[0, 3, 7, 12], [0, 4, 7, 12], [0, 4, 7, 12], [0, 4, 8, 12]];
+
+    // 2) Track 2: Kiber Döyüş (Dm – Bb – Gm – A)
+    const T2_ROOTS = [73.42, 58.27, 49.00, 55.00];
+    const T2_ARP = [[0, 3, 7, 12], [0, 3, 7, 10], [0, 3, 7, 12], [0, 4, 7, 12]];
+
+    // 3) Track 3: Dramatik Epik (Cm – Ab – Fm – G)
+    const T3_ROOTS = [65.41, 51.91, 43.65, 49.00];
+    const T3_ARP = [[0, 3, 7, 12], [0, 4, 7, 12], [0, 3, 7, 12], [0, 4, 7, 11]];
+
+    function ac() {
+      if (!ctx) {
+        try {
+          ctx = new (window.AudioContext || window.webkitAudioContext)();
+          master = ctx.createGain(); master.gain.value = muted ? 0 : 0.9; master.connect(ctx.destination);
+          bus = ctx.createGain(); bus.connect(master);
+          noiseBuf = ctx.createBuffer(1, ctx.sampleRate, ctx.sampleRate);
+          const d = noiseBuf.getChannelData(0);
+          for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+        } catch (e) { ctx = null; return null; }
+      }
+      if (ctx.state === 'suspended') ctx.resume();
+      return ctx;
+    }
+
+    function tone(f, t0, dur, type, vol, f2) {
+      const c = ac(); if (!c) return;
+      const o = c.createOscillator(), g = c.createGain(), t = c.currentTime + t0;
+      o.type = type || 'sine';
+      o.frequency.setValueAtTime(f, t);
+      if (f2) o.frequency.exponentialRampToValueAtTime(f2, t + dur);
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(vol, t + 0.01);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(g); g.connect(bus); o.start(t); o.stop(t + dur + 0.03);
+    }
+
+    function clap(t0, dur, vol, freq) {
+      const c = ac(); if (!c) return;
+      const s = c.createBufferSource(), f = c.createBiquadFilter(), g = c.createGain(), t = c.currentTime + t0;
+      s.buffer = noiseBuf; f.type = 'bandpass'; f.frequency.value = freq; f.Q.value = 0.8;
+      g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      s.connect(f); f.connect(g); g.connect(bus); s.start(t, Math.random() * 0.8, dur + 0.02);
+    }
+
+    function applause(len) {
+      for (let i = 0; i < 230; i++) {
+        const t = Math.random() * len;
+        const env = Math.min(1, t / 0.7) * (t > len - 1.6 ? (len - t) / 1.6 : 1);
+        clap(t, 0.03 + Math.random() * 0.05, 0.35 * env + 0.01, 1200 + Math.random() * 2800);
+      }
+    }
+
+    function mTone(f, t, dur, type, vol, cutoff, attack) {
+      const o = ctx.createOscillator(), g = ctx.createGain(), fl = ctx.createBiquadFilter();
+      o.type = type; o.frequency.setValueAtTime(f, t);
+      fl.type = 'lowpass'; fl.frequency.value = cutoff || 1200; fl.Q.value = 2;
+      const a = attack || 0.012;
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(vol, t + a);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(fl); fl.connect(g); g.connect(mGain);
+      o.start(t); o.stop(t + dur + 0.05);
+    }
+
+    function mKick(t, vol, pitchStart, pitchEnd) {
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = 'sine';
+      o.frequency.setValueAtTime(pitchStart || 130, t);
+      o.frequency.exponentialRampToValueAtTime(pitchEnd || 42, t + 0.14);
+      g.gain.setValueAtTime(vol, t);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.22);
+      o.connect(g); g.connect(mGain); o.start(t); o.stop(t + 0.26);
+    }
+
+    function mHat(t, vol, hiCut) {
+      const s = ctx.createBufferSource(), f = ctx.createBiquadFilter(), g = ctx.createGain();
+      s.buffer = noiseBuf; f.type = 'highpass'; f.frequency.value = hiCut || 7000;
+      g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.05);
+      s.connect(f); f.connect(g); g.connect(mGain); s.start(t, Math.random() * 0.8, 0.07);
+    }
+
+    function stepDur() {
+      let bpm = 124;
+      if (mTrack === 'track2') bpm = mIntense ? 160 : 138;
+      else if (mTrack === 'track3') bpm = mIntense ? 134 : 110;
+      else bpm = mIntense ? 148 : 124;
+      return 60 / bpm / 4;
+    }
+
+    function playStep(step, t) {
+      const bar = Math.floor(step / 16) % 4, s = step % 16, sd = stepDur();
+
+      if (mTrack === 'track2') {
+        /* Trek 2: Kiber Döyüş (Texno Duel) */
+        const root = T2_ROOTS[bar], arp = T2_ARP[bar];
+        if (s === 0) mTone(root * 2, t, sd * 16, 'sawtooth', 0.05, 420, sd * 2);
+        if (s % 4 === 0) mKick(t, mIntense ? 0.65 : 0.52, 160, 48);
+        if (s % 2 === 0) {
+          const octave = (s === 2 || s === 10) ? 2 : 1;
+          mTone(root * octave, t, sd * 1.5, 'square', mIntense ? 0.2 : 0.14, mIntense ? 1800 : 1200);
+        }
+        if (s % 4 === 2) mHat(t, mIntense ? 0.09 : 0.06, 6000);
+        if (mIntense) {
+          const semi = arp[s % 4];
+          mTone(root * 4 * Math.pow(2, semi / 12), t, sd * 0.8, 'sawtooth', 0.065, 3200);
+          if (s % 2 === 1) mHat(t, 0.04, 8500);
+        } else if (s % 2 === 1) {
+          const semi = arp[s % 4];
+          mTone(root * 4 * Math.pow(2, semi / 12), t, sd * 0.6, 'triangle', 0.04, 2200);
+        }
+      } else if (mTrack === 'track3') {
+        /* Trek 3: Dramatik Epik (Kinematik) */
+        const root = T3_ROOTS[bar], arp = T3_ARP[bar];
+        if (s === 0) {
+          mTone(root * 2, t, sd * 16, 'sawtooth', 0.07, 360, sd * 4);
+          mTone(root * 3, t, sd * 16, 'triangle', 0.06, 500, sd * 4);
+        }
+        if (s === 0 || s === 6 || s === 10) mKick(t, mIntense ? 0.75 : 0.6, 95, 32);
+        if (s % 2 === 0) {
+          const semi = arp[(s / 2) % 4];
+          mTone(root * 4 * Math.pow(2, semi / 12), t, sd * 0.7, 'sawtooth', mIntense ? 0.08 : 0.05, 2000, 0.005);
+        }
+        if (mIntense) {
+          if (s % 4 === 2) mHat(t, 0.06, 5500);
+          if (s % 4 === 0) mTone(root * 8, t, sd * 1.4, 'square', 0.03, 3000);
+        }
+      } else {
+        /* Trek 1: Klassik TV (Orijinal Floor) */
+        const root = T1_ROOTS[bar], arp = T1_ARP[bar];
+        if (s === 0) {
+          const len = sd * 16;
+          mTone(root * 4, t, len, 'sawtooth', 0.05, 520, len * 0.45);
+          mTone(root * 4 * 1.006, t, len, 'sawtooth', 0.04, 520, len * 0.45);
+          mTone(root * 6.0, t, len, 'triangle', 0.035, 800, len * 0.5);
+        }
+        if (s % 4 === 0) mKick(t, mIntense ? 0.5 : 0.4);
+        if (s % 2 === 0) {
+          const f = (s === 6 || s === 14) ? root * 2 : root;
+          mTone(f, t, sd * 1.7, 'sawtooth', s % 4 === 0 ? 0.17 : 0.11, mIntense ? 900 : 650);
+        }
+        if (mIntense) {
+          const semi = arp[s % 4];
+          mTone(root * 8 * Math.pow(2, semi / 12), t, sd * 0.9, 'square', 0.035, 2600);
+          mHat(t, s % 2 ? 0.05 : 0.03);
+        } else if (s % 4 === 2) {
+          const semi = arp[(s >> 2) % 4];
+          mTone(root * 8 * Math.pow(2, semi / 12), t, sd * 2.2, 'triangle', 0.06, 2000);
+        }
+      }
+    }
+
+    function mSchedule() {
+      if (!ctx || !mOn) return;
+      while (mNext < ctx.currentTime + 0.25) {
+        playStep(mStep, mNext);
+        mNext += stepDur();
+        mStep++;
+      }
+    }
+
+    function musicStart() {
+      const c = ac(); if (!c || mOn) return;
+      if (!mGain) { mGain = c.createGain(); mGain.gain.value = 0; mGain.connect(master); }
+      mOn = true;
+      const now = c.currentTime;
+      mGain.gain.cancelScheduledValues(now);
+      mGain.gain.setValueAtTime(mGain.gain.value, now);
+      mGain.gain.linearRampToValueAtTime(MUSIC_VOL, now + 1.2);
+      mNext = now + 0.08;
+      clearInterval(mTimer);
+      mTimer = setInterval(mSchedule, 40);
+      mSchedule();
+    }
+
+    function musicStop(fade) {
+      if (!ctx || !mGain) { mOn = false; clearInterval(mTimer); return; }
+      mOn = false;
+      clearInterval(mTimer);
+      const now = ctx.currentTime, f = fade || 0.3;
+      mGain.gain.cancelScheduledValues(now);
+      mGain.gain.setValueAtTime(mGain.gain.value, now);
+      mGain.gain.linearRampToValueAtTime(0, now + f);
+    }
+
+    return {
+      unlock: function () { ac(); },
+      stop: function () {
+        clearTimeout(winTimer);
+        musicStop(0.05);
+        mStep = 0; mIntense = false;
+        if (!ctx) return;
+        try { bus.disconnect(); } catch (e) {}
+        bus = ctx.createGain(); bus.connect(master);
+      },
+      musicStart: musicStart,
+      musicStop: musicStop,
+      setTrack: function (t) { mTrack = t || 'track1'; },
+      setIntense: function (v) { mIntense = !!v; },
+      tick: function (low) { tone(low ? 1800 : 1200, 0, 0.04, 'square', low ? 0.09 : 0.06); },
+      count: function (go) { if (go) tone(1320, 0, 0.55, 'square', 0.18); else tone(660, 0, 0.2, 'square', 0.16); },
+      correct: function () { tone(660, 0, 0.14, 'triangle', 0.28); tone(990, 0.11, 0.26, 'triangle', 0.28); tone(1320, 0.11, 0.32, 'sine', 0.1); },
+      pass: function () { tone(250, 0, 0.2, 'sawtooth', 0.22, 170); tone(170, 0.22, 0.4, 'sawtooth', 0.22, 90); },
+      finish: function () {
+        tone(110, 0, 0.9, 'sawtooth', 0.25); tone(113, 0, 0.9, 'square', 0.1);
+        winTimer = setTimeout(function () {
+          [523, 659, 784].forEach(function (f, i) { tone(f, i * 0.16, 0.25, 'triangle', 0.25); });
+          tone(1047, 0.48, 0.9, 'triangle', 0.3); tone(523, 0.48, 0.9, 'sawtooth', 0.08);
+          applause(5);
+        }, 800);
+      },
+      toggle: function () {
+        muted = !muted;
+        try { localStorage.setItem('floorMuted', muted ? '1' : '0'); } catch (e) {}
+        if (master) master.gain.value = muted ? 0 : 0.9;
+        if (!muted) tone(880, 0, 0.12, 'sine', 0.2);
+        return muted;
+      },
+      isMuted: function () { return muted; }
+    };
+  })();
+
+  function syncMute() {
+    const m = Sfx.isMuted();
+    $('icVol').hidden = m; $('icMute').hidden = !m;
+    $('btnMute').setAttribute('aria-pressed', m ? 'true' : 'false');
+  }
+  function toggleMute() { Sfx.toggle(); syncMute(); }
+
+  /* ===================================================================
+     Google Apps Script Backend API (GitHub Pages ilə tam inteqrasiya)
+     =================================================================== */
+  const API_URL = 'https://script.google.com/macros/s/AKfycbxXC-2HS0C0nSVNSRZSvzHb-_p-Y8FbVfMBZQ9fbZnKp6vSNWmZSeJStzFxT1zYRSfHcQ/exec';
+
+  function api(fn) {
+    const args = Array.prototype.slice.call(arguments, 1);
+    let req;
+
+    if (fn === 'getGameData') {
+      req = fetch(API_URL + '?action=getGameData&_t=' + Date.now(), {
+        method: 'GET',
+        mode: 'cors'
+      });
+    } else {
+      req = fetch(API_URL, {
+        method: 'POST',
+        mode: 'cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ action: fn, args: args })
+      });
+    }
+
+    return req
+      .then(function (res) {
+        if (!res.ok) throw new Error('Server cavab vermədi: HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function (res) {
+        if (res && res.ok) return res.data;
+        throw new Error((res && res.error) || 'Naməlum xəta baş verdi');
+      });
+  }
+
+  function toast(message, type) {
+    const t = document.createElement('div');
+    t.className = 'toast ' + (type || '');
+    t.textContent = message;
+    $('toasts').appendChild(t);
+    setTimeout(function () { t.remove(); }, type === 'err' ? 6000 : 3500);
+  }
+
+  function shuffleInPlace(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+    }
+    return arr;
+  }
+
+  /* status: loading | ready | countdown | running | penalty | feedback | paused | finished */
+  const S = {
+    settings: Object.assign({}, DEFAULTS),
+    questions: [],
+    order: [],
+    pos: 0,
+    turn: 0,
+    times: [60000, 60000],
+    total: 60000,
+    status: 'loading',
+    prevStatus: 'running',
+    penaltyLeft: 0,
+    lastTs: 0,
+    adminPin: '',
+    dirty: false,
+    pausedByModal: false,
+    countLeft: 0,
+    countShown: 0,
+    feedbackLeft: 0,
+    answerLeft: 0
+  };
+  let imgs = [];
+  let loadTimer = null;
+  const clockCache = ['', ''];
+
+  /* ---------- Yükləmə ---------- */
+  function loadGame() {
+    setStatus('loading');
+    $('btnRetry').hidden = true;
+    $('loadTitle').textContent = 'Məlumatlar yüklənir…';
+    $('loadSub').textContent = 'Cədvəldən ən son parametrlər və suallar oxunur.';
+    $('loadFill').style.width = '4%';
+
+    return api('getGameData').then(function (data) {
+      S.settings = Object.assign({}, DEFAULTS, data.settings);
+      S.questions = data.questions || [];
+      applySettings();
+      buildImages();
+    }).catch(function (err) {
+      showLoadError(err.message);
+    });
+  }
+
+  function showLoadError(message) {
+    $('loadTitle').textContent = 'Yükləmə alınmadı';
+    $('loadSub').textContent = message;
+    $('loadFill').style.width = '0';
+    $('btnRetry').hidden = false;
+    setStatus('loading');
+  }
+
+  function buildImages() {
+    const holder = $('stageImgs');
+    holder.innerHTML = '';
+    imgs = [];
+    clearTimeout(loadTimer);
+
+    const total = S.questions.length;
+    if (!total) {
+      showLoadError('Questions tabında aktiv sual tapılmadı. Cədvələ şəkil URL və cavab əlavə edin.');
+      return;
+    }
+
+    let settled = 0;
+    let failed = 0;
+    let finished = false;
+
+    function finish() {
+      if (finished) return;
+      finished = true;
+      clearTimeout(loadTimer);
+      onAllLoaded(failed);
+    }
+
+    function update() {
+      $('loadTitle').textContent = 'Şəkillər yüklənir…';
+      $('loadSub').textContent = settled + ' / ' + total;
+      $('loadFill').style.width = Math.round((settled / total) * 100) + '%';
+    }
+
+    S.questions.forEach(function (q, i) {
+      const img = new Image();
+      img.className = 'q';
+      img.alt = 'Sual şəkli';
+      img.decoding = 'async';
+      img.setAttribute('aria-hidden', 'true');
+      img.referrerPolicy = 'no-referrer';
+      img.draggable = false;
+      let done = false;
+
+      function mark(ok) {
+        if (done) return;
+        done = true;
+        settled++;
+        if (!ok) { failed++; q.failed = true; }
+        update();
+        if (settled === total) finish();
+      }
+      img.onload = function () {
+        (img.decode ? img.decode() : Promise.resolve()).catch(function () {}).then(function () { mark(true); });
+      };
+      img.onerror = function () { mark(false); };
+      img.src = q.url;
+      holder.appendChild(img);
+      imgs[i] = img;
+    });
+
+    update();
+    loadTimer = setTimeout(function () {
+      S.questions.forEach(function (q, i) {
+        if (!imgs[i].complete || !imgs[i].naturalWidth) q.failed = true;
+      });
+      failed = S.questions.filter(function (q) { return q.failed; }).length;
+      finish();
+    }, 25000);
+  }
+
+  function onAllLoaded(failed) {
+    const valid = S.questions.filter(function (q) { return !q.failed; }).length;
+    if (!valid) {
+      showLoadError('Heç bir şəkil yüklənmədi. URL-ləri və Google Drive paylaşım icazələrini yoxlayın.');
+      return;
+    }
+    if (failed) toast(failed + ' şəkil yüklənmədi və oyundan çıxarıldı.', 'warn');
+    $('readyInfo').textContent = valid + ' sual hazırdır · hər iştirakçıya ' + S.settings.vaxt + ' san · Pass cəriməsi ' + S.settings.pass + ' san';
+    resetRound();
+    setStatus('ready');
+  }
+
+  /* ---------- Parametrlər və render ---------- */
+  function applySettings() {
+    S.total = S.settings.vaxt * 1000;
+    $('name0').textContent = S.settings.ad1;
+    $('name1').textContent = S.settings.ad2;
+    $('topicText').textContent = S.settings.movzu;
+    document.title = 'Duellekt 44 — ' + S.settings.movzu;
+    S.times = [S.total, S.total];
+    S.turn = 0;
+    clockCache[0] = clockCache[1] = '';
+    Sfx.setTrack(S.settings.musiqi);
+    renderClocks();
+  }
+
+  function resetRound() {
+    S.times = [S.total, S.total];
+    S.turn = 0;
+    S.penaltyLeft = 0;
+    S.countLeft = 0;
+    S.feedbackLeft = 0;
+    Sfx.stop();
+    hideQuestion();
+    clearAnswer();
+    clockCache[0] = clockCache[1] = '';
+    renderClocks();
+  }
+
+  function renderClocks() {
+    for (let p = 0; p < 2; p++) {
+      const ms = Math.max(0, S.times[p]);
+      const text = (Math.ceil(ms / 100) / 10).toFixed(1);
+      if (clockCache[p] !== text) {
+        clockCache[p] = text;
+        $('time' + p).innerHTML = text + '<small>san</small>';
+      }
+      $('bar' + p).style.width = (S.total ? (ms / S.total) * 100 : 0) + '%';
+      const card = $('player' + p);
+      card.classList.toggle('low', ms <= LOW_MS);
+      card.classList.toggle('active', (S.status === 'running' || S.status === 'penalty' || S.status === 'feedback' || S.status === 'paused') && S.turn === p);
+    }
+  }
+
+  function setAnswer(text, type) {
+    const box = $('answerBox');
+    box.classList.remove('correct', 'wrong');
+    if (type) box.classList.add(type);
+    $('answerValue').textContent = text;
+    $('answerLabel').textContent = type === 'wrong' ? 'Pass · düzgün cavab' : 'Düzgün cavab';
+  }
+  function clearAnswer() { S.answerLeft = 0; setAnswer('—', null); $('answerLabel').textContent = 'Düzgün cavab'; }
+
+  function showQuestion() {
+    const idx = S.order[S.pos];
+    imgs.forEach(function (img, i) {
+      const on = i === idx;
+      img.classList.toggle('active', on);
+      img.setAttribute('aria-hidden', on ? 'false' : 'true');
+    });
+  }
+  function hideQuestion() {
+    imgs.forEach(function (img) { img.classList.remove('active'); img.setAttribute('aria-hidden', 'true'); });
+  }
+  function currentQuestion() { return S.questions[S.order[S.pos]]; }
+
+  function buildOrder(avoidFirst) {
+    const ids = [];
+    S.questions.forEach(function (q, i) { if (!q.failed) ids.push(i); });
+    if (S.settings.qarisdir) shuffleInPlace(ids);
+    if (avoidFirst !== undefined && ids.length > 1 && ids[0] === avoidFirst) {
+      const t = ids[0]; ids[0] = ids[1]; ids[1] = t;
+    }
+    S.order = ids;
+    S.pos = 0;
+  }
+
+  function advance() {
+    S.pos++;
+    if (S.pos >= S.order.length) buildOrder(S.order[S.order.length - 1]);
+  }
+
+  /* ---------- Status idarəsi ---------- */
+  function setStatus(s) {
+    S.status = s;
+    document.body.setAttribute('data-status', s);
+    $('ovLoading').classList.toggle('show', s === 'loading');
+    $('ovReady').classList.toggle('show', s === 'ready');
+    $('ovPenalty').classList.toggle('show', s === 'penalty');
+    $('ovPause').classList.toggle('show', s === 'paused');
+    $('ovCount').classList.toggle('show', s === 'countdown');
+    $('ovWinner').classList.toggle('show', s === 'finished');
+
+    $('btnNext').disabled = s !== 'running';
+    $('btnPass').disabled = s !== 'running';
+
+    const start = $('btnStart');
+    start.disabled = !(s === 'ready' || s === 'running' || s === 'penalty' || s === 'feedback' || s === 'paused');
+    const running = s === 'running' || s === 'penalty' || s === 'feedback';
+    $('icPlay').hidden = running;
+    $('icPause').hidden = !running;
+    $('btnStartLabel').textContent = s === 'ready' ? 'Başla' : running ? 'Pauza' : 'Davam et';
+
+    if (s === 'countdown' || s === 'running' || s === 'penalty' || s === 'feedback') Sfx.musicStart();
+    else if (s === 'paused') Sfx.musicStop(0.25);
+    else if (s === 'finished') Sfx.musicStop(0.5);
+    else Sfx.musicStop(0.1);
+
+    renderClocks();
+  }
+
+  /* ---------- Oyun hərəkətləri ---------- */
+  function startGame() {
+    if (S.status !== 'ready') return;
+    resetRound();
+    buildOrder();
+    Sfx.unlock();
+    S.countLeft = COUNT_MS;
+    S.countShown = 0;
+    $('countNum').textContent = String(Math.ceil(COUNT_MS / 1000));
+    setStatus('countdown');
+  }
+
+  function pauseGame() {
+    if (S.status === 'running' || S.status === 'penalty' || S.status === 'feedback') {
+      S.prevStatus = S.status;
+      setStatus('paused');
+    }
+  }
+  function resumeGame() {
+    if (S.status === 'paused') setStatus(S.prevStatus || 'running');
+  }
+  function toggleStart() {
+    if (S.status === 'ready') startGame();
+    else if (S.status === 'running' || S.status === 'penalty' || S.status === 'feedback') pauseGame();
+    else if (S.status === 'paused') resumeGame();
+  }
+
+  function doNext() {
+    if (S.status !== 'running') return;
+    setAnswer(currentQuestion().answer, 'correct');
+    S.answerLeft = 0;
+    hideQuestion();
+    S.turn = 1 - S.turn;
+    advance();
+    S.feedbackLeft = NEXT_DELAY_MS;
+    Sfx.correct();
+    setStatus('feedback');
+  }
+
+  function doPass() {
+    if (S.status !== 'running') return;
+    setAnswer(currentQuestion().answer, 'wrong');
+    S.answerLeft = ANSWER_SHOW_MS;
+    Sfx.pass();
+    hideQuestion();
+    S.penaltyLeft = S.settings.pass * 1000;
+    if (S.penaltyLeft <= 0) { endPenalty(); return; }
+    $('penaltyNum').textContent = String(S.settings.pass);
+    setStatus('penalty');
+  }
+
+  function endPenalty() {
+    advance();
+    clearAnswer();
+    showQuestion();
+    S.penaltyLeft = 0;
+    setStatus('running');
+  }
+
+  function finishGame(loser) {
+    hideQuestion();
+    Sfx.finish();
+    const winner = 1 - loser;
+    const names = [S.settings.ad1, S.settings.ad2];
+    $('winnerName').textContent = names[winner];
+    $('winnerMeta').textContent = names[loser] + ' — vaxtı bitdi · ' + names[winner] + ': ' + (Math.max(0, S.times[winner]) / 1000).toFixed(1) + ' san qaldı';
+    setStatus('finished');
+  }
+
+  function resetGame() {
+    if (S.status === 'loading') return;
+    loadGame();
+  }
+
+  function tick(ts) {
+    const dt = Math.min(Math.max(ts - S.lastTs, 0), 250);
+    S.lastTs = ts;
+
+    if (S.status === 'countdown') {
+      S.countLeft -= dt;
+      const n = Math.max(0, Math.ceil(S.countLeft / 1000));
+      if (n !== S.countShown) {
+        S.countShown = n;
+        if (n > 0) { $('countNum').textContent = String(n); restartAnim($('countNum')); Sfx.count(false); }
+      }
+      if (S.countLeft <= 0) { S.countShown = 0; Sfx.count(true); showQuestion(); setStatus('running'); }
+    } else if (S.status === 'feedback') {
+      S.feedbackLeft -= dt;
+      if (S.feedbackLeft <= 0) { S.feedbackLeft = 0; clearAnswer(); showQuestion(); setStatus('running'); }
+    }
+
+    if (S.answerLeft > 0 && (S.status === 'running' || S.status === 'penalty')) {
+      S.answerLeft -= dt;
+      if (S.answerLeft <= 0) clearAnswer();
+    }
+
+    if (S.status === 'running' || S.status === 'penalty') {
+      const t = S.turn;
+      const secBefore = Math.ceil(S.times[t] / 1000);
+      S.times[t] -= dt;
+      const secAfter = Math.ceil(Math.max(0, S.times[t]) / 1000);
+      if (secAfter !== secBefore && secAfter > 0) Sfx.tick(secAfter <= 10);
+      if (S.status === 'penalty') {
+        S.penaltyLeft -= dt;
+        $('penaltyNum').textContent = String(Math.max(1, Math.ceil(S.penaltyLeft / 1000)));
+      }
+      Sfx.setIntense(S.times[t] <= LOW_MS);
+      if (S.times[t] <= 0) {
+        S.times[t] = 0;
+        renderClocks();
+        finishGame(t);
+      } else {
+        if (S.status === 'penalty' && S.penaltyLeft <= 0) endPenalty();
+        renderClocks();
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+
+  /* ---------- İdarəetmə paneli (CRUD) ---------- */
+  function modalOpen() { return $('modal').classList.contains('show'); }
+
+  function openManager() {
+    if (S.status === 'running' || S.status === 'penalty') { pauseGame(); S.pausedByModal = true; }
+    $('modal').classList.add('show');
+    if (S.adminPin) loadAdminData();
+    else { $('pinGate').hidden = false; $('mgr').hidden = true; $('pinErr').textContent = ''; setTimeout(function () { $('pinInput').focus(); }, 30); }
+  }
+
+  function closeManager() {
+    $('modal').classList.remove('show');
+    if (S.dirty) {
+      S.dirty = false;
+      S.pausedByModal = false;
+      toast('Dəyişikliklər tətbiq olunur…', 'ok');
+      loadGame();
+    } else if (S.pausedByModal) {
+      S.pausedByModal = false;
+      resumeGame();
+    }
+  }
+
+  function loadAdminData() {
+    $('pinErr').textContent = '';
+    return api('getAdminData', S.adminPin).then(function (data) {
+      $('pinGate').hidden = true;
+      $('mgr').hidden = false;
+      renderQuestionTable(data.questions);
+      fillSettingsForm(data.settings);
+    }).catch(function (err) {
+      S.adminPin = '';
+      $('pinGate').hidden = false;
+      $('mgr').hidden = true;
+      $('pinErr').textContent = err.message;
+    });
+  }
+
+  function renderQuestionTable(list) {
+    const body = $('qBody');
+    body.innerHTML = '';
+    list.forEach(function (q, i) {
+      const tr = document.createElement('tr');
+
+      const tdN = document.createElement('td'); tdN.textContent = String(i + 1);
+      const tdImg = document.createElement('td');
+      const im = document.createElement('img');
+      im.className = 'thumb'; im.loading = 'lazy'; im.alt = ''; im.referrerPolicy = 'no-referrer'; im.src = q.url;
+      tdImg.appendChild(im);
+      const tdA = document.createElement('td'); tdA.textContent = q.answer; tdA.style.fontWeight = '500';
+      const tdS = document.createElement('td');
+      const chip = document.createElement('span');
+      chip.className = 'chip ' + (q.active ? 'on' : 'off');
+      chip.textContent = q.active ? 'Aktiv' : 'Passiv';
+      tdS.appendChild(chip);
+
+      const tdAct = document.createElement('td');
+      const wrap = document.createElement('div'); wrap.className = 'row-actions';
+      const bEdit = document.createElement('button');
+      bEdit.className = 'btn btn-sm'; bEdit.type = 'button'; bEdit.textContent = 'Redaktə';
+      bEdit.addEventListener('click', function () { startEdit(q); });
+      const bDel = document.createElement('button');
+      bDel.className = 'btn btn-sm btn-danger'; bDel.type = 'button'; bDel.textContent = 'Sil';
+      bDel.addEventListener('click', function () { removeQuestion(q); });
+      wrap.appendChild(bEdit); wrap.appendChild(bDel); tdAct.appendChild(wrap);
+
+      [tdN, tdImg, tdA, tdS, tdAct].forEach(function (td) { tr.appendChild(td); });
+      body.appendChild(tr);
+    });
+    if (!list.length) {
+      const tr = document.createElement('tr');
+      const td = document.createElement('td');
+      td.colSpan = 5; td.style.color = 'var(--text-2)'; td.textContent = 'Hələ sual yoxdur.';
+      tr.appendChild(td); body.appendChild(tr);
+    }
+  }
+
+  function startEdit(q) {
+    $('qRow').value = q.id;
+    $('qUrl').value = q.rawUrl;
+    $('qAnswer').value = q.answer;
+    $('qActive').checked = q.active;
+    $('qSubmit').textContent = 'Yenilə';
+    $('qCancel').hidden = false;
+    $('qUrl').focus();
+  }
+  function resetQuestionForm() {
+    $('qForm').reset();
+    $('qRow').value = '';
+    $('qActive').checked = true;
+    $('qSubmit').textContent = 'Əlavə et';
+    $('qCancel').hidden = true;
+    $('qErr').textContent = '';
+  }
+
+  function removeQuestion(q) {
+    api('deleteQuestion', S.adminPin, q.id).then(function () {
+      S.dirty = true;
+      toast('"' + q.answer + '" sualı silindi.', 'ok');
+      resetQuestionForm();
+      return loadAdminData();
+    }).catch(function (err) { toast(err.message, 'err'); });
+  }
+
+  function fillSettingsForm(s) {
+    $('sAd1').value = s.ad1;
+    $('sAd2').value = s.ad2;
+    $('sMovzu').value = s.movzu;
+    $('sVaxt').value = s.vaxt;
+    $('sPass').value = s.pass;
+    $('sMusic').value = s.musiqi || 'track1';
+    $('sShuffle').checked = !!s.qarisdir;
+  }
+
+  function selectTab(which) {
+    const q = which === 'q';
+    $('tabQ').setAttribute('aria-selected', q ? 'true' : 'false');
+    $('tabS').setAttribute('aria-selected', q ? 'false' : 'true');
+    $('panelQ').hidden = !q;
+    $('panelS').hidden = q;
+  }
+
+  /* ---------- Hadisələr ---------- */
+  function bind() {
+    $('btnStart').addEventListener('click', toggleStart);
+    $('btnStartBig').addEventListener('click', startGame);
+    $('btnNext').addEventListener('click', doNext);
+    $('btnPass').addEventListener('click', doPass);
+    $('btnReset').addEventListener('click', resetGame);
+    $('btnAgain').addEventListener('click', resetGame);
+    $('btnRetry').addEventListener('click', loadGame);
+    $('btnManage').addEventListener('click', openManager);
+    $('mClose').addEventListener('click', closeManager);
+    $('btnFull').addEventListener('click', function () {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(function () {});
+    });
+    $('btnDockHide').addEventListener('click', function () { document.body.classList.add('admin-hidden'); });
+    $('btnDockShow').addEventListener('click', function () { document.body.classList.remove('admin-hidden'); });
+
+    $('btnMute').addEventListener('click', toggleMute);
+    syncMute();
+
+    $('tabQ').addEventListener('click', function () { selectTab('q'); });
+    $('tabS').addEventListener('click', function () { selectTab('s'); });
+
+    $('pinForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      S.adminPin = $('pinInput').value;
+      $('pinInput').value = '';
+      loadAdminData();
+    });
+
+    $('qCancel').addEventListener('click', resetQuestionForm);
+    $('qForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      $('qErr').textContent = '';
+      const row = $('qRow').value;
+      const payload = { row: row ? Number(row) : null, url: $('qUrl').value.trim(), answer: $('qAnswer').value.trim(), active: $('qActive').checked };
+      api(row ? 'updateQuestion' : 'createQuestion', S.adminPin, payload).then(function () {
+        S.dirty = true;
+        toast(row ? 'Sual yeniləndi.' : 'Sual əlavə olundu.', 'ok');
+        resetQuestionForm();
+        return loadAdminData();
+      }).catch(function (err) { $('qErr').textContent = err.message; });
+    });
+
+    $('sForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      $('sErr').textContent = '';
+      api('saveSettings', S.adminPin, {
+        ad1: $('sAd1').value, ad2: $('sAd2').value, movzu: $('sMovzu').value,
+        vaxt: Number($('sVaxt').value), pass: Number($('sPass').value),
+        musiqi: $('sMusic').value, qarisdir: $('sShuffle').checked
+      }).then(function (saved) {
+        S.dirty = true;
+        fillSettingsForm(saved);
+        toast('Parametrlər saxlanıldı.', 'ok');
+      }).catch(function (err) { $('sErr').textContent = err.message; });
+    });
+
+    // Qısayollar: S və ya Space = başla/pauza, N / → = Next, P / ↑ / ↓ = Pass, H = paneli gizlət, M = səs
+    document.addEventListener('keydown', function (e) {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      if (modalOpen()) { if (e.key === 'Escape') closeManager(); return; }
+      const tag = (e.target && e.target.tagName) || '';
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+
+      const k = e.key.toLowerCase();
+      if (k === 'n' || e.key === 'ArrowRight') { e.preventDefault(); if (!e.repeat) doNext(); }
+      else if (k === 'p' || e.key === 'ArrowUp' || e.key === 'ArrowDown') { e.preventDefault(); if (!e.repeat) doPass(); }
+      else if (k === 's' || e.code === 'Space' || e.key === ' ') { e.preventDefault(); if (!e.repeat) toggleStart(); }
+      else if (k === 'h') { document.body.classList.toggle('admin-hidden'); }
+      else if (k === 'm') { toggleMute(); }
+    });
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) pauseGame();
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    bind();
+    S.lastTs = performance.now();
+    requestAnimationFrame(tick);
+    loadGame();
+  });
+})();
+</script>
+</body>
+</html>
