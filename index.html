@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>Duellekt 44</title>
+<title>Duellekt</title>
 <link rel="icon" type="image/jpeg" href="https://docs.google.com/drawings/d/e/2PACX-1vQbzxPda05zw-xlcupsexZXTdDejHMneiSYpebnPi4kDrTlAGoWDvzmG54n2X7AAZuNllQMYRsKgCjV/pub?w=960&h=720">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 /* =====================================================================
-   DUELLEKT 44 — TV Şou Dizaynı (Royal Mavi + Qızılı)
+   DUELLEKT — TV Şou Dizaynı (Royal Mavi + Qızılı)
    ===================================================================== */
 :root {
   --bg: #01030c;
@@ -108,7 +108,7 @@ body.admin-hidden .dock-reveal { display: inline-flex; }
 .penalty-num { font-family: var(--font-display); font-weight: 800; font-size: clamp(80px, 16vw, 180px); line-height: 1; color: var(--rose); text-shadow: 0 0 40px rgba(244, 63, 94, 0.35); font-variant-numeric: tabular-nums; }
 
 /* =====================================================================
-   Scoreboard — Duellekt 44 lövhəsi
+   Scoreboard — Duellekt lövhəsi
    ===================================================================== */
 .scoreboard {
   display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto auto;
@@ -264,9 +264,9 @@ tbody tr:hover { background: var(--card-hover); }
   <header class="topbar">
     <div class="brand">
       <div class="logo" aria-hidden="true">
-        <img src="https://docs.google.com/drawings/d/e/2PACX-1vQbzxPda05zw-xlcupsexZXTdDejHMneiSYpebnPi4kDrTlAGoWDvzmG54n2X7AAZuNllQMYRsKgCjV/pub?w=960&h=720" alt="Duellekt 44">
+        <img src="https://docs.google.com/drawings/d/e/2PACX-1vQbzxPda05zw-xlcupsexZXTdDejHMneiSYpebnPi4kDrTlAGoWDvzmG54n2X7AAZuNllQMYRsKgCjV/pub?w=960&h=720" alt="Duellekt">
       </div>
-      <span class="brand-title">DUELLEKT 44</span>
+      <span class="brand-title">DUELLEKT</span>
       <span class="topic-pill"><span class="dot"></span><span id="topicText">Yüklənir…</span></span>
     </div>
 
@@ -453,7 +453,7 @@ tbody tr:hover { background: var(--card-hover); }
   'use strict';
 
   const $ = function (id) { return document.getElementById(id); };
-  const DEFAULTS = { ad1: 'Oyunçu 1', ad2: 'Oyunçu 2', movzu: 'Duellekt 44', vaxt: 60, pass: 5, qarisdir: true, musiqi: 'track1' };
+  const DEFAULTS = { ad1: 'Oyunçu 1', ad2: 'Oyunçu 2', movzu: 'Duellekt', vaxt: 60, pass: 5, qarisdir: true, musiqi: 'track1' };
   const LOW_MS = 10000;
   const COUNT_MS = 3000;
   const NEXT_DELAY_MS = 1000;
@@ -888,7 +888,7 @@ tbody tr:hover { background: var(--card-hover); }
     $('name0').textContent = S.settings.ad1;
     $('name1').textContent = S.settings.ad2;
     $('topicText').textContent = S.settings.movzu;
-    document.title = 'Duellekt 44 — ' + S.settings.movzu;
+    document.title = 'Duellekt — ' + S.settings.movzu;
     S.times = [S.total, S.total];
     S.turn = 0;
     clockCache[0] = clockCache[1] = '';
